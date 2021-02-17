@@ -1,21 +1,15 @@
 #!/bin/bash
-isFulltime=1
-isParttime=2
-empHr=0
+salaryPerDay=100
 salaryPerHr=20
-randomNumber=$(($RANDOM%3))
-case $randomNumber in $isFulltime )
- echo "Employee is Full Time"
-empHr=16
+echo "1:wage of month by day 2:wage of month by hr and day"
+read -p "enter 1 0r 2" num
+case $num in "1" )
+ monthlyWage=$(($salaryPerDay*20))
+echo "wage of month by day =" $monthlyWage
 ;;
- $isParttime )
- echo "Employee is Part Time"
-empHr=8
-;;
-*)
- echo "Employee is Absent"
-empHr=0
+"2")
+ monthlyWage=$(($salaryPerHr*100))
+echo "wage of month by hr and day =" $monthlyWage
 ;;
 esac
-dailywage=$(($dailywage+$salaryPerHr*$empHr*20))
-echo $dailywage
+
