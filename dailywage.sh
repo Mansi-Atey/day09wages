@@ -1,10 +1,15 @@
 #!/bin/bash
-isPresent=1
-isAbsent=0
+isFulltime=1
+empHr=0
+salaryPerHr=20
 randomNumber=$(($RANDOM%2))
-if [ $randomNumber -eq $isPresent ]
+if [ $randomNumber -eq $isFulltime ]
 then 
- echo "Employee is Present"
+ echo "Employee is Full Time"
+empHr=8
 else
  echo "Employee is Absent"
+empHr=0
 fi
+dailywage=$(($dailywage+$salaryPerHr*$empHr))
+echo $dailywage
