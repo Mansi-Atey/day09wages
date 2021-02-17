@@ -4,17 +4,18 @@ isParttime=2
 empHr=0
 salaryPerHr=20
 randomNumber=$(($RANDOM%3))
-if [ $randomNumber -eq $isFulltime ]
-then 
+case $randomNumber in $isFulltime )
  echo "Employee is Full Time"
 empHr=16
-elif [ $randomNumber -eq $isParttime ]
-then
+;;
+ $isParttime )
  echo "Employee is Part Time"
 empHr=8
-else
+;;
+*)
  echo "Employee is Absent"
 empHr=0
-fi
-dailywage=$(($dailywage+$salaryPerHr*$empHr))
+;;
+esac
+dailywage=$(($dailywage+$salaryPerHr*$empHr*20))
 echo $dailywage
